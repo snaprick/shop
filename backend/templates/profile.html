@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Profile: {{ user.username }}</h2>
+  <p>Email: {{ user.email }}</p>
+  <ul>
+    {% for order in user.customer.orders.all %}
+    <li>{{ order.product.name|title }} - {{ order.quantity }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
